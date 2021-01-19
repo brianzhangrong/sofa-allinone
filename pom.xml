@@ -30,13 +30,13 @@
 		<dependency>
 			<groupId>com.ihomefnt.ark</groupId>
 			<artifactId>demo1</artifactId>
-<!--			<classifier>ark-biz</classifier>-->
+			<classifier>ark-biz</classifier>
 			<version>0.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.ihomefnt.ark</groupId>
 			<artifactId>demo2</artifactId>
-<!--			<classifier>ark-biz</classifier>-->
+			<classifier>ark-biz</classifier>
 			<version>0.0.1</version>
 		</dependency>
 		<dependency>
@@ -54,7 +54,10 @@
 			<artifactId>sofa-ark-springboot-starter</artifactId>
 			<version>${sofa.ark.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>isle-sofa-boot</artifactId>
+		</dependency>
 <!--		<dependency>-->
 <!--			<groupId>com.alipay.sofa</groupId>-->
 <!--			<artifactId>sofa-ark-support-starter</artifactId>-->
@@ -93,10 +96,6 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<groupId>com.alipay.sofa</groupId>
 				<artifactId>sofa-ark-maven-plugin</artifactId>
 				<version>${sofa.ark.version}</version>
@@ -108,8 +107,8 @@
 						</goals>
 						<configuration>
 							<!--ark 包和 ark biz 的打包存放目录，默认为工程 build 目录-->
-							<outputDirectory>./target</outputDirectory>
-							<arkClassifier>executable-ark</arkClassifier>
+							<bizClassifier>ark-biz</bizClassifier>
+							<attach>true</attach>
 <!--							&lt;!&ndash;设置应用的根目录，用于读取 ${base.dir}/conf/ark/bootstrap.application 配置文件，默认为 ${project.basedir}&ndash;&gt;-->
 <!--							<baseDir>./</baseDir>-->
 <!--							&lt;!&ndash;生成 ark 包文件名称，默认为 ${artifactId}&ndash;&gt;-->
@@ -153,8 +152,8 @@
 <!--							&lt;!&ndash;打包 ark biz 时，配置不从 ark plugin 索引的类；默认情况下，ark biz 会优先索引所有 ark plugin 的导出类，-->
 <!--              添加该配置后，ark biz 将只在ark biz内部加载该类，不再优先委托 ark plugin 加载&ndash;&gt;-->
 <!--							<denyImportClasses>-->
-<!--								<class>com.ihomefnt.ark.demo1.controller.Demo1Controller</class>-->
-<!--								<class>com.ihomefnt.ark.demo2.controller.Demo2Controller</class>-->
+<!--								<class>com.ihomefnt.ark.demo.Demo1Application</class>-->
+<!--								<class>com.ihomefnt.ark.demo.Demo2Application</class>-->
 <!--							</denyImportClasses>-->
 
 <!--							&lt;!&ndash;对应 denyImportClasses 配置，可以配置包级别&ndash;&gt;-->
@@ -172,10 +171,6 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
