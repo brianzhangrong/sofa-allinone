@@ -1,178 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.alipay.sofa</groupId>
-		<artifactId>sofaboot-dependencies</artifactId>
-		<version>3.4.6</version>
-	</parent>
-	<groupId>com.ihomefnt.ark</groupId>
-	<artifactId>allinone</artifactId>
-	<version>0.0.1</version>
-	<name>allinone</name>
-	<description>Demo project for Spring Boot</description>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>sofaboot-dependencies</artifactId>
+    <version>3.2.2</version>
+  </parent>
+  <groupId>com.ihomefnt.ark</groupId>
+  <artifactId>allinone</artifactId>
+  <version>0.0.1</version>
+  <name>allinone</name>
+  <description>Demo project for Spring Boot</description>
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
+  <properties>
+    <java.version>1.8</java.version>
+  </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.alipay.sofa</groupId>
-			<artifactId>sofa-ark-all</artifactId>
-			<version>${sofa.ark.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alipay.sofa</groupId>
-			<artifactId>healthcheck-sofa-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.ihomefnt.ark</groupId>
-			<artifactId>demo1</artifactId>
-			<classifier>ark-biz</classifier>
-			<version>0.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ihomefnt.ark</groupId>
-			<artifactId>demo2</artifactId>
-			<classifier>ark-biz</classifier>
-			<version>0.0.1</version>
-		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-web</artifactId>-->
-<!--		</dependency>-->
+  <dependencies>
+    <dependency>
+      <groupId>com.alipay.sofa</groupId>
+      <artifactId>sofa-ark-all</artifactId>
+      <version>${sofa.ark.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alipay.sofa</groupId>
+      <artifactId>healthcheck-sofa-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ihomefnt.ark</groupId>
+      <artifactId>demo1</artifactId>
+      <classifier>ark-biz</classifier>
+      <version>0.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ihomefnt.ark</groupId>
+      <artifactId>demo2</artifactId>
+      <classifier>ark-biz</classifier>
+      <version>0.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alipay.sofa</groupId>
+      <artifactId>test-sofa-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alipay.sofa</groupId>
+      <artifactId>sofa-ark-springboot-starter</artifactId>
+<!--      <version>${sofa.ark.version}</version>-->
+    </dependency>
+    <dependency>
+      <groupId>com.alipay.sofa</groupId>
+      <artifactId>runtime-sofa-boot-plugin</artifactId>
+<!--      <version>3.2.2</version>-->
+    </dependency>
+    <dependency>
+      <groupId>com.alipay.sofa</groupId>
+      <artifactId>isle-sofa-boot</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-context</artifactId>-->
+<!--    </dependency>-->
+  </dependencies>
 
-		<dependency>
-			<groupId>com.alipay.sofa</groupId>
-			<artifactId>test-sofa-boot-starter</artifactId>
-		</dependency>
+  <profiles>
 
-		<dependency>
-			<groupId>com.alipay.sofa</groupId>
-			<artifactId>sofa-ark-springboot-starter</artifactId>
-			<version>${sofa.ark.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alipay.sofa</groupId>
-			<artifactId>isle-sofa-boot</artifactId>
-		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>com.alipay.sofa</groupId>-->
-<!--			<artifactId>sofa-ark-support-starter</artifactId>-->
-<!--			<version>${sofa.ark.version}</version>-->
-<!--		</dependency>-->
-	</dependencies>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <id>maven-snapshot</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <id>maven-snapshot</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
 
-	<profiles>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.alipay.sofa</groupId>
+        <artifactId>sofa-ark-maven-plugin</artifactId>
+        <!--				<version>${sofa.ark.version}</version>-->
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+            <configuration>
+              <!--ark 包和 ark biz 的打包存放目录，默认为工程 build 目录-->
+              <attach>true</attach>
+              <bizName>allinone</bizName>
+              <baseDir>./</baseDir>
 
-		<profile>
-			<id>default</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<repositories>
-				<repository>
-					<snapshots>
-						<enabled>true</enabled>
-					</snapshots>
-					<id>maven-snapshot</id>
-					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-				</repository>
-			</repositories>
-			<pluginRepositories>
-				<pluginRepository>
-					<snapshots>
-						<enabled>true</enabled>
-					</snapshots>
-					<id>maven-snapshot</id>
-					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-				</pluginRepository>
-			</pluginRepositories>
-		</profile>
-	</profiles>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.alipay.sofa</groupId>
-				<artifactId>sofa-ark-maven-plugin</artifactId>
-				<version>${sofa.ark.version}</version>
-				<executions>
-					<execution>
-						<id>default-cli</id>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-						<configuration>
-							<!--ark 包和 ark biz 的打包存放目录，默认为工程 build 目录-->
-							<bizClassifier>ark-biz</bizClassifier>
-							<attach>true</attach>
-<!--							&lt;!&ndash;设置应用的根目录，用于读取 ${base.dir}/conf/ark/bootstrap.application 配置文件，默认为 ${project.basedir}&ndash;&gt;-->
-<!--							<baseDir>./</baseDir>-->
-<!--							&lt;!&ndash;生成 ark 包文件名称，默认为 ${artifactId}&ndash;&gt;-->
-<!--							<finalName>allinone-ark</finalName>-->
-<!--							&lt;!&ndash;是否跳过执行 goal:repackage，默认为false&ndash;&gt;-->
-<!--							<skip>false</skip>-->
-<!--							&lt;!&ndash;是否打包、安装和发布 ark biz，详细参考 Ark Biz 文档，默认为false&ndash;&gt;-->
-<!--							<attach>true</attach>-->
-<!--							&lt;!&ndash;设置 ark 包的 classifier，默认为空&ndash;&gt;-->
-<!--							<arkClassifier>executable-ark</arkClassifier>-->
-<!--							&lt;!&ndash;设置 ark biz 的 classifier，默认为 ark-biz&ndash;&gt;-->
-<!--							<bizClassifier>allinone-classifier</bizClassifier>-->
-<!--							&lt;!&ndash;设置 ark biz 的 biz name，默认为 ${artifactId}&ndash;&gt;-->
-<!--							<bizName>com.ihomefnt.ark.allinone</bizName>-->
-<!--							&lt;!&ndash;设置 ark biz 的 biz version，默认为 ${artifactId}&ndash;&gt;-->
-<!--							<bizVersion>0.0.1</bizVersion>-->
-<!--							&lt;!&ndash;设置 ark biz 的 启动优先级，值越小优先级越高，${artifactId}&ndash;&gt;-->
-<!--							<priority>100</priority>-->
-<!--							&lt;!&ndash;设置 ark biz 的启动入口，默认会搜索被打 org.springframework.boot.autoconfigure.SpringBootApplication 注解且含有 main 方法的入口类&ndash;&gt;-->
-<!--							<mainClass>com.ihomefnt.ark.allinone.AllinoneApplication</mainClass>-->
-<!--							&lt;!&ndash;设置是否将 scope=provided 的依赖打包，默认为 false&ndash;&gt;-->
-<!--							<packageProvided>false</packageProvided>-->
-<!--							&lt;!&ndash;设置是否生成 Biz 包，默认为true&ndash;&gt;-->
-<!--							<keepArkBizJar>true</keepArkBizJar>-->
-<!--							&lt;!&ndash;针对 Web 应用，设置 context path，默认为 /&ndash;&gt;-->
-<!--							<webContextPath>/</webContextPath>-->
-<!--							&lt;!&ndash;打包 ark biz 时，排除指定的包依赖；格式为: ${groupId:artifactId} 或者 ${groupId:artifactId:classifier}&ndash;&gt;-->
-<!--							<excludes>-->
-<!--								<exclude>org.apache.commons:commons-lang3</exclude>-->
-<!--							</excludes>-->
-<!--							&lt;!&ndash;打包 ark biz 时，排除和指定 groupId 相同的包依赖&ndash;&gt;-->
-<!--							<excludeGroupIds>-->
-<!--								<excludeGroupId>org.springframework</excludeGroupId>-->
-<!--							</excludeGroupIds>-->
-
-<!--							&lt;!&ndash;打包 ark biz 时，排除和指定 artifactId 相同的包依赖&ndash;&gt;-->
-<!--							<excludeArtifactIds>-->
-<!--								<excludeArtifactId>sofa-ark-spi</excludeArtifactId>-->
-<!--							</excludeArtifactIds>-->
-
-<!--							&lt;!&ndash;打包 ark biz 时，配置不从 ark plugin 索引的类；默认情况下，ark biz 会优先索引所有 ark plugin 的导出类，-->
-<!--              添加该配置后，ark biz 将只在ark biz内部加载该类，不再优先委托 ark plugin 加载&ndash;&gt;-->
-<!--							<denyImportClasses>-->
-<!--								<class>com.ihomefnt.ark.demo.Demo1Application</class>-->
-<!--								<class>com.ihomefnt.ark.demo.Demo2Application</class>-->
-<!--							</denyImportClasses>-->
-
-<!--							&lt;!&ndash;对应 denyImportClasses 配置，可以配置包级别&ndash;&gt;-->
-<!--							<denyImportPackages>-->
-<!--								<package>com.ihomefnt.ark</package>-->
-<!--								<package>org.springframework.*</package>-->
-<!--							</denyImportPackages>-->
-
-<!--							&lt;!&ndash;打包 ark biz 时，配置不从 ark plugin 索引的资源；默认情况下，ark biz 会优先索引所有 ark plugin 的导出资源,-->
-<!--              添加该配置后，ark biz 将只在ark biz内部寻找该资源，不在从 ark plugin 查找&ndash;&gt;-->
-<!--							<denyImportResources>-->
-<!--								<resource>META-INF/spring/test1.xml</resource>-->
-<!--								<resource>META-INF/spring/test2.xml</resource>-->
-<!--							</denyImportResources>-->
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
