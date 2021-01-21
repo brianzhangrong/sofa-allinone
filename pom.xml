@@ -32,12 +32,24 @@
       <artifactId>demo1</artifactId>
       <classifier>ark-biz</classifier>
       <version>0.0.1</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>config-ark-plugin</artifactId>
+          <groupId>com.alipay.sofa</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.ihomefnt.ark</groupId>
       <artifactId>demo2</artifactId>
       <classifier>ark-biz</classifier>
       <version>0.0.1</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>config-ark-plugin</artifactId>
+          <groupId>com.alipay.sofa</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.alipay.sofa</groupId>
@@ -46,12 +58,10 @@
     <dependency>
       <groupId>com.alipay.sofa</groupId>
       <artifactId>sofa-ark-springboot-starter</artifactId>
-<!--      <version>${sofa.ark.version}</version>-->
     </dependency>
     <dependency>
       <groupId>com.alipay.sofa</groupId>
       <artifactId>runtime-sofa-boot-plugin</artifactId>
-<!--      <version>3.2.2</version>-->
     </dependency>
     <dependency>
       <groupId>com.alipay.sofa</groupId>
@@ -61,10 +71,20 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <artifactId>curator-client</artifactId>
+      <groupId>org.apache.curator</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>curator-framework</artifactId>
+      <groupId>org.apache.curator</groupId>
+    </dependency>
 <!--    <dependency>-->
-<!--      <groupId>org.springframework</groupId>-->
-<!--      <artifactId>spring-context</artifactId>-->
+<!--      <groupId>com.alipay.sofa</groupId>-->
+<!--      <artifactId>config-ark-plugin</artifactId>-->
+<!--      <version>${sofa.ark.version}</version>-->
 <!--    </dependency>-->
+
   </dependencies>
 
   <profiles>
@@ -100,7 +120,6 @@
       <plugin>
         <groupId>com.alipay.sofa</groupId>
         <artifactId>sofa-ark-maven-plugin</artifactId>
-        <!--				<version>${sofa.ark.version}</version>-->
         <executions>
           <execution>
             <id>default-cli</id>
@@ -112,12 +131,10 @@
               <attach>true</attach>
               <bizName>allinone</bizName>
               <baseDir>./</baseDir>
-
             </configuration>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
-
 </project>
